@@ -1,0 +1,34 @@
+{{>header}}
+
+<body>
+<p class="topImgWrap"><img src="/images/stores/stores_top.jpg" width="100%"></p>
+
+<h2 class="storesTit">
+	<span class="icon-tit icon-tit1">{{addrInfo.name}}</span>
+</h2>
+
+<dl class="storesCont">
+	<!--<dt>课程Class：</dt>
+	<dd>BODYPUMP塑形杠铃操，BODYCOMBAT燃脂搏击，BODYJ-AM格莱美舞蹈，ZUMBA尊巴，TRX海豹突击队，瑜伽YOGA垫上普拉提 PILATES，搏击BOXING.</dd>
+
+	<dt>特色Feature:</dt>-->
+	<dd>
+		<div class="mb20">{{addrInfo.description}}</div>
+		<div class="f0">
+		{{#replaceImg addrInfo.images}}
+		{{/replaceImg}}
+		</div>
+	</dd>
+</dl>
+
+<h2 class="storesTit">
+	<span class="icon-tit icon-tit2">地址信息</span>
+</h2>
+
+<dl class="storesCont">
+	<dd>{{addrInfo.address}}     <span class="viewMap" onclick="window.open('/map?addr={{addrInfo.coordinate}}', '_self')">查看地图</span></dd>
+</dl>
+
+
+<!-- <script src="/js/stores.min.js"></script> -->
+{{>footer}}

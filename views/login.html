@@ -1,0 +1,27 @@
+{{>header}}
+
+<body class="loginBody">
+
+<section class="logonLoginWrap">
+	<img src="/images/login/logo_login.png" class="logo-login">
+</section>
+
+<section class="loginFormWrap">
+	<ul class="list-login">
+		<li><input type="text" maxlength="11" placeholder="请输入11位中国大陆手机号" id="inpPhone" class="inp-login pw100"></li>
+		<li>
+			<p class="clearfix">
+				<input type="text" maxlength="6" placeholder="请输入6位验证码" id="inpSmsCode" class="inp-login w362 fl">
+				<button class="btn-sendSms fr">发送验证码</button>
+			</p>
+		</li>
+		<li>
+			<p class="btnLoginWrap">
+				<button class="btn-login pw100">登录龙健身</button>
+			</p>
+		</li>
+	</ul>
+</section>
+
+<script src="/js/login.min.js"></script>
+{{>footer}}

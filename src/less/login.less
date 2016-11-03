@@ -1,0 +1,25 @@
+@lurl: '/images/login';
+
+.loginBody {
+    background:url('@{lurl}/bg_login.jpg') no-repeat / cover;
+}
+.logonLoginWrap {&:extend(.tc);padding:.87rem 0 .8rem;}
+.logo-login {width:2.6rem;}
+
+.list-login {
+    &:extend(.mau,.f0);width:5.9rem;
+    li {margin-bottom:.44rem;}
+}
+.btn-sendSms,.inp-login,.btn-login {height:.8rem;line-height:.8rem;border-radius: 4px;outline:none;}
+.inp-login {
+    &:extend(.noBg,.vm,.c3,.f26);border:1px solid #a2a2a2;padding:0 .26rem;
+    &::placeholder {color:#3f3f3f;}
+}
+.btn-sendSms {
+    &:extend(.tc,.noBorder,.vm,.f28,.cwhite);width:2.12rem;background-color:#7f7f7f;
+    &:disabled {color:#aaa;background-color:#666;}
+}
+.btnLoginWrap {padding-top:.56rem;}
+.btn-login {
+    &:extend(.cwhite,.tc,.noBorder);background-color:@bgColor;font-size:.32rem;
+}

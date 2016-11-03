@@ -1,0 +1,31 @@
+@surl: '/images/stores';
+
+.topImgWrap {&:extend(.f0);/*border-bottom:1px solid #ebebeb;*/}
+.storesTit {
+    &:extend(.cwhite);font-size:.3rem;background-color:@bgColor;height:.8rem;border-radius:4px;margin:.18rem .14rem .3rem;
+    &::before{content:'\200B';&:extend(.vm,.dib);height:.8rem;width:0;}
+}
+.icon-tit {padding-left:1rem;background-size: .36rem 6rem;background-repeat: no-repeat;background-image:url("@{url}/i.png");&:extend(.f26,.dib,.vm);height:.36rem;line-height:.36rem;}
+.icon-tit1 {
+	background-position:.4rem 0rem;
+}
+.icon-tit2 {
+	background-position:.4rem -.54rem;
+}
+.icon-tit3 {
+	background-position:.4rem -1.89rem;
+}
+.icon-tit4 {
+	background-position:.4rem -2.6rem;
+}
+.icon-tit5 {
+	background-position:.4rem -3.3rem;height:.4rem;line-height:.4rem;
+}
+
+.storesCont {
+    &:extend(.f24,.c6);line-height:1.6;padding:0 .45rem;
+    dd {margin-bottom:.4rem;}
+    dd:last-child {margin-bottom:.24rem;}
+}
+
+.viewMap {color:@bgColor;margin-left:.3rem;}

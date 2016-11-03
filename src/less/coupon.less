@@ -1,0 +1,42 @@
+@curl: '/images/coupon';
+
+.couponBody {background-color:#f9f9f9;background: url("@{curl}/bg_coupon.jpg") center bottom #f9f9f9 no-repeat/cover;}
+.header-coupon {
+    &:extend(.tc,.f30,.c3,.bgWhite);height:.9rem;line-height:.9rem;border-bottom:2px solid @bgColor;
+}
+.couponForm {
+    margin:.3rem .36rem .4rem;
+}
+.inp-coupon {
+    &:extend(.bgWhite,.c3,.noBorder,.f28);border-radius:4px;width:5rem;height:.78rem;line-height:.78rem;padding:0 .1rem;
+    &:placeholder {&:extend(.c9);}
+}
+.btn-coupon {
+    &:extend(.cwhite,.tc,.noBorder,.f28);border-radius:4px;background-color:@bgColor;height:.78rem;line-height:.78rem;width:1.54rem;
+}
+.couponWrap {
+    margin:0 .36rem;
+}
+.hasGetCoupon {
+    &:extend(.c6,.f28);margin-bottom:.3rem;
+}
+.list-coupon {
+    &:extend(.cwhite);
+    li {
+        &:extend(.pr);margin-bottom:.44rem;
+        width:6.86rem;height:2.25rem;
+    }
+    .q1 {background:url('@{curl}/coupon1.jpg') no-repeat/6.86rem 2.25rem;}
+    .q2 {background:url('@{curl}/coupon2.jpg') no-repeat/6.86rem 2.25rem;}
+    .q3 {background:url('@{curl}/coupon3.jpg') no-repeat/6.86rem 2.25rem;}
+}
+.couponNum {
+    &:extend(.pa,.f26);top:.46rem;left:.6rem;
+}
+.expiryDate {
+    &:extend(.pa,.f12);top:1.6rem;left:.6rem;
+}
+.couponInfo {
+    &:extend(.pa,.tc);top:.4rem;right:.6rem;
+}
+.bigCouponNum {font-size:.74rem;}

@@ -1,0 +1,29 @@
+@purl: '/images/personhome';
+
+.personBody {
+    background:url('@{purl}/bg_home.jpg') center top no-repeat / cover;
+}
+
+.ml20 {margin-left:.2rem;}
+
+.timeWrap {
+    background-color:#F0F0F0;height:3rem;
+}
+.list-time {
+    &:extend(.f0,.tc);
+    li {&:extend(.dib,.tc);width:33.3%;padding-top:.74rem;line-height:2.4;}
+}
+.timeTit {&:extend(.c3,.f28);}
+.timeNum {&:extend(.aColor,.f28);}
+.bigTimeTxt {&:extend(.f46);}
+.memInfoWrap {margin:.52rem auto .55rem;}
+.toolBarWrap {margin-bottom:.1rem;}
+.toolBar {
+    &:extend(.tc);
+    a {&:extend(.dib,.cwhite,.tc,.f28);background-color:@bgColor;height:.54rem;line-height:.57rem;width:1.86rem;border-radius:.27rem;margin:0 .2rem;}
+}
+.noLoginWrap {
+    margin: 2.1rem 0;
+    p{&:extend(.c3,.f36,.tc);margin-bottom:.44rem;}
+}
+.mt100 {margin-top:1rem;}

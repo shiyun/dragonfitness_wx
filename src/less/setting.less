@@ -1,0 +1,23 @@
+@surl: '/images/setting';
+
+.setBody {
+    background:url('@{surl}/bg_setting.jpg') center top no-repeat / cover;
+}
+.headerWrap {&:extend(.oh);}
+.headerBg {
+    margin:.62rem auto 0;height:4.54rem;width:4.54rem;border-radius:50%;background:url('@{surl}/headerwrap2.png') no-repeat/cover;
+}
+.headerBg {
+    &:extend(.tc);padding-top:1rem; margin:.8rem auto 0;
+}
+.headerBg2 {padding-top:1.4rem;}
+.headerImgWrap {
+    &:extend(.pr,.dib);height:1.7rem;width:1.7rem;border-radius:50%;background-color:#DEDEDE;padding:.06rem;
+}
+.headerImg {width:100%;height:100%;border-radius:50%;}
+.headerIcon {&:extend(.pa);bottom:0;right:0;height:.52rem;width:.52rem;}
+.memberNumWrap {
+    &:extend(.c3,.f28,.tc);margin-top:.1rem;
+}
+.changeTitWrap {&:extend(.tc,.f0,.f0);margin:.36rem 0 1rem;}
+.changeTit {&:extend(.c6,.tc,.dib,.f24);border-radius:4px;background-color:#E3E3E3;width:2.2rem;height:.5rem;line-height:.54rem;}
