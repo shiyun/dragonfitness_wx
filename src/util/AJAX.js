@@ -37,6 +37,7 @@ var AJAX = function(){
         api:{
             SENDSMS			: '/api/' + API_URL + '/common/verifyCode',
             LOGIN			: '/login',
+            LOGOUT			: '/logout',
             USER_INFO		: '/api/' + API_URL + '/user/info',
             UPDATE_PHONE	: '/api/' + API_URL + '/user/updatePhone',
             UPDATE_USEINFO	: '/api/' + API_URL + '/user/updateUseInfo',

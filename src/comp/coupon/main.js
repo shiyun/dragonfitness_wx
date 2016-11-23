@@ -40,6 +40,8 @@ var init = function () {
 	                    });	
 	                }else if(response.status.code == '1101'){
 						location.href = '/login';
+					}else if(response.status.code == '1100'){
+						ajax.post(ajax.api.LOGOUT,{},function(data){window.location.reload();}, function(err){window.location.reload();});
 					}else{
 	                	ui.promptLayer({
 	                        tsinfo: response.status.desp,
@@ -74,6 +76,8 @@ var init = function () {
 				renderCouponList(response.result.coupons);
 			}else if(response.status.code == '1101'){
 				location.href = '/login';
+			}else if(response.status.code == '1100'){
+				ajax.post(ajax.api.LOGOUT,{},function(data){window.location.reload();}, function(err){window.location.reload();});
 			}else{
 				ui.promptLayer({
 	                tsinfo: '获取优惠券信息失败',

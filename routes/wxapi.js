@@ -7,6 +7,11 @@ var request = require('request');
 var ApiUtil = require("../util/apiUtil");
 var apiUtil = new ApiUtil();
 
+router.post('/logout', function(req, res, next){
+	delete req.session.isLogin;
+	res.send(jsonFormat.success('成功'));
+});
+
 router.get('/getCode', function(req, res, next){
 	var stateUrl = decodeURIComponent(req.query.state);
 	var code = req.query.code;

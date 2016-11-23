@@ -126,6 +126,7 @@ var Util = function () {
 		type = type || 'snsapi_userinfo';
 		if(!isWX()) return;
 		location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid='+ appid +'&redirect_uri=https://wechat.alpha.dragonfitness.cn/wx/getCode&response_type=code&scope='+ type +'&state='+url+'#wechat_redirect';
+		console.log('https://open.weixin.qq.com/connect/oauth2/authorize?appid='+ appid +'&redirect_uri=https://wechat.alpha.dragonfitness.cn/wx/getCode&response_type=code&scope='+ type +'&state='+url+'#wechat_redirect');
 	};
 
 	var authPass = function(){

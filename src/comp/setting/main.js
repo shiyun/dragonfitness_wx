@@ -36,6 +36,8 @@ var init = function () {
                         return ;
                     }else if(response.status.code == '1101'){
 						location.href = '/login';
+					}else if(response.status.code == '1100'){
+						ajax.post(ajax.api.LOGOUT,{},function(data){window.location.reload();}, function(err){window.location.reload();});
 					}else{
 						btnSendCode.prop('disabled', true);
                         sendTimer = setInterval(function(){

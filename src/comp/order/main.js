@@ -37,6 +37,8 @@ var init = function () {
 				countPrice();
 			}else if(response.status.code == '1101'){
 				location.href = '/login';
+			}else if(response.status.code == '1100'){
+				ajax.post(ajax.api.LOGOUT,{},function(data){window.location.reload();}, function(err){window.location.reload();});
 			}else{
 				ui.promptLayer({
 	                tsinfo: '获取打折信息失败',
@@ -73,17 +75,17 @@ var init = function () {
 			function(response){
 				console.log(response);
 				if(response.status.code == '1000'){
-					callpay(response.result.payUrl);
+					callpay(JSON.parse(response.result.payUrl));
 				}else{
 					ui.promptLayer({
-						tsinfo: '支付失败',
+						tsinfo: '支付失败~',
 						btxt2: ''
 					});
 				}
 			},
 			function(err){
 				ui.promptLayer({
-					tsinfo: '支付失败',
+					tsinfo: '支付失败！',
 					btxt2: ''
 				});
 			}, {auth: true});
@@ -176,33 +178,41 @@ var init = function () {
 		//console.log(nowPrice, oPrice);
 	}
 
-	function jsApiCall(data){
-		WeixinJSBridge.invoke(
-			'getBrandWCPayRequest',
-			data,
-			function(res){
-				WeixinJSBridge.log(res)
-				WeixinJSBridge.log(res.err_msg); // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。
-				if(res.err_msg == "get_brand_wcpay_request：ok" ) {
-
-				}
-				//alert(res.err_code+res.err_desc+res.err_msg);
-			}
-	);
-	}
-
 	function callpay(data){
-		if (typeof WeixinJSBridge == "undefined"){
-			if( document.addEventListener ){
-				document.addEventListener('WeixinJSBridgeReady', function(){jsApiCall(data)}, false);
-			}else if (document.attachEvent){
-				document.attachEvent('WeixinJSBridgeReady', function(){jsApiCall(data)});
-				document.attachEvent('onWeixinJSBridgeReady', function(){jsApiCall(data)});
-			}
-		}else{
-			jsApiCall(data);
-		}
-	}
+		console.log(typeof data);
+		console.log(data);
+		wx.config({
+			debug: false,
+			appId: data.appId,
+			timestamp: data.timeStamp,
+			nonceStr: data.nonceStr,
+			signature: data.paySign,
+			jsApiList: [
+				'chooseWXPay'
+			]
+		});
+		wx.ready(function () {
+			wx.chooseWXPay({
+				timestamp: data.timeStamp,
+				nonceStr: data.nonceStr,
+				package: data.package,
+				signType: data.signType,
+				paySign: data.paySign,
+				success: function (res) {
+					ui.promptLayer({
+						tsinfo: '支付成功',
+						btxt2: ''
+					});
+				},
+				fail: function () {
+					ui.promptLayer({
+						tsinfo: '支付失败。',
+						btxt2: ''
+					});
+				}
+			});
+		});
+	}	
 };
 
 $(function () {
