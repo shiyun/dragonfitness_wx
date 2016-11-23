@@ -35,6 +35,8 @@ var init = function () {
 				renderSerivceSelectList(response.result.serviceInfo);
 				renderCouponSelectList(response.result.coupons);
 				countPrice();
+			}else if(response.status.code == '1101'){
+				location.href = '/login';
 			}else{
 				ui.promptLayer({
 	                tsinfo: '获取打折信息失败',

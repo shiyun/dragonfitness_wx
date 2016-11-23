@@ -38,7 +38,9 @@ var init = function () {
 			                	renderList();
 			                }
 	                    });	
-	                }else{
+	                }else if(response.status.code == '1101'){
+						location.href = '/login';
+					}else{
 	                	ui.promptLayer({
 	                        tsinfo: response.status.desp,
 	                        btxt2: '',
@@ -70,6 +72,8 @@ var init = function () {
 		function(response){
 			if(response.status.code == '1000'){
 				renderCouponList(response.result.coupons);
+			}else if(response.status.code == '1101'){
+				location.href = '/login';
 			}else{
 				ui.promptLayer({
 	                tsinfo: '获取优惠券信息失败',

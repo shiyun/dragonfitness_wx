@@ -34,7 +34,9 @@ var init = function () {
                             btxt2: ''
                         });
                         return ;
-                    }else{
+                    }else if(response.status.code == '1101'){
+						location.href = '/login';
+					}else{
 						btnSendCode.prop('disabled', true);
                         sendTimer = setInterval(function(){
                             t--;

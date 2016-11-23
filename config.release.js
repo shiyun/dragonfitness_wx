@@ -10,8 +10,8 @@ typeof module !== 'undefined' && (module.exports = {
 	osType: '1',
 	clientEnv: 'WX', //WX WAP WEB APP
 	wxInfo: {
-		appID: 'wxe3f64f9136b2d098',
-		appSecret: 'f82a9de7d0f094c754da1f0498ca06c3',
+		appID: 'wxb3f24b8a0dd97b0d',
+		appSecret: '2d704bd329cae8c857f59d7b3f99c7b1',
 		wechatToken: 'dragonfitness'
 	},
 	API_URL: 'https://api.dragonfitness.cn/'
