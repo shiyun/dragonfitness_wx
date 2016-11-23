@@ -146,31 +146,35 @@ var init = function () {
 			scope = opt.data('scope'),
 			amount = opt.val(),
 			prices = parseInt(moneyNum.html());
-
-		switch(scope){
-			case '1':
-				if(amount > memberPrice){
-					memberPrice = 0;
-				}else{
-					memberPrice = memberPrice - amount;
-				}
-				nowPrice = memberPrice + prices;
-				break;
-			case '2':
-				if(amount > prices){
-					prices = 0;
-				}else{
-					prices = prices - amount;
-				}
-				nowPrice = memberPrice + prices;
-				break;
-			case '1,2':
-				if(amount > (prices + memberPrice)){
-					nowPrice = 0;
-				}else{
-					nowPrice = (prices + memberPrice) - amount;
-				}
-				break;
+		
+		if (scope){		
+			switch(scope){
+				case '1':
+					if(amount > memberPrice){
+						memberPrice = 0;
+					}else{
+						memberPrice = memberPrice - amount;
+					}
+					nowPrice = memberPrice + prices;
+					break;
+				case '2':
+					if(amount > prices){
+						prices = 0;
+					}else{
+						prices = prices - amount;
+					}
+					nowPrice = memberPrice + prices;
+					break;
+				case '1,2':
+					if(amount > (prices + memberPrice)){
+						nowPrice = 0;
+					}else{
+						nowPrice = (prices + memberPrice) - amount;
+					}
+					break;
+			}
+		}else{
+			nowPrice = parseInt(prices+memberPrice);
 		}
 		nowPriceWrap.html(nowPrice);
 		oPrice = parseInt(prices+memberPrice);
