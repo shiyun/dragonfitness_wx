@@ -8,7 +8,7 @@ var init = function () {
 	if(!isPass) return;
 
 	var token = $('#token').val(),
-		isMember = 0,
+		isMember = $('#isMember').val(),
 		selectChoseMon = $('#selectChoseMon'),
 		selectChoseMon2 = $('#selectChoseMon2'),
 		basePrice = $('.basePrice'),
@@ -21,8 +21,11 @@ var init = function () {
 		oPrice = 0,
 		months = 1,
 		couponNo = '',
-		memberPriceWrap = $('.memberPrice'),
-		memberPrice = 0;
+		memberPriceWrap = $('.memberPrice');		
+
+	if (isMember == '1'){
+		$('.delInfo').addClass('hidden');
+	}
 
 	ajax.post(ajax.api.PAY_ORDER_INIT,
 		{ "token":token},
@@ -58,6 +61,13 @@ var init = function () {
 			discountVal = opt.data('discount'),
 			val = opt.val();
 		months = opt.text();
+		/*
+		if(months == 1){
+			$('.discountNumWrap').addClass('hidden');
+		}else{
+			$('.discountNumWrap').removeClass('hidden');
+		}
+		*/
 		discountNum.html(discountVal);
 		moneyNum.html(val);
 		countPrice();
@@ -142,14 +152,26 @@ var init = function () {
 	}
 
 	function countPrice(){
-		var opt = selectChoseMon2.find('option:selected'),
-			scope = opt.data('scope'),
-			amount = opt.val(),
-			prices = parseInt(moneyNum.html());
+		var opt = selectChoseMon2.find('option:selected'),						
+			prices = Number(moneyNum.html()),
+			memberPrice = Number(memberPriceWrap.html());
+		nowPrice = 0;
 		
-		if (scope){		
+		if(opt.length){
+			var scope = String(opt.data('scope'));
+			var amount = Number(opt.val());
+		}else{
+			var scope = null;
+			var amount = 0;
+		}
+		console.log( 'memberPrice:'+memberPrice, '优惠券amount：'+amount, '月费moneyNum：'+prices, '最新价格nowPrice：'+ nowPrice, scope);
+		if(isMember == '1'){
+			memberPrice = 0;
+		}
+		if(scope){		
 			switch(scope){
 				case '1':
+					oPrice = _util.add(prices, memberPrice);
 					if(amount > memberPrice){
 						memberPrice = 0;
 					}else{
@@ -158,6 +180,7 @@ var init = function () {
 					nowPrice = memberPrice + prices;
 					break;
 				case '2':
+					oPrice = _util.add(prices, memberPrice);
 					if(amount > prices){
 						prices = 0;
 					}else{
@@ -166,6 +189,7 @@ var init = function () {
 					nowPrice = memberPrice + prices;
 					break;
 				case '1,2':
+					oPrice = _util.add(prices, memberPrice);
 					if(amount > (prices + memberPrice)){
 						nowPrice = 0;
 					}else{
@@ -174,12 +198,13 @@ var init = function () {
 					break;
 			}
 		}else{
-			nowPrice = parseInt(prices+memberPrice);
+			oPrice = _util.add(prices, memberPrice);
+			nowPrice = _util.add(prices,memberPrice);
 		}
-		nowPriceWrap.html(nowPrice);
-		oPrice = parseInt(prices+memberPrice);
-		oPriceWrap.html(oPrice);
-		//console.log(nowPrice, oPrice);
+		console.log( 'memberPrice:'+memberPrice, '优惠券amount：'+amount, '月费moneyNum：'+prices, '最新价格nowPrice：'+ nowPrice, scope);
+		nowPriceWrap.text(nowPrice);
+		//oPriceWrap.text(oPrice);
+		oPriceWrap.text(Number(selectChoseMon.find('option:selected').data('totalprice')) + memberPrice);
 	}
 
 	function callpay(data){
@@ -207,6 +232,14 @@ var init = function () {
 						tsinfo: '支付成功',
 						btxt2: ''
 					});
+					ajax.post(ajax.api.UPDATEINFO,
+						{token: token},
+						function(response){
+									
+						},
+						function(err){
+							
+						},{auth: true});
 				},
 				fail: function () {
 					ui.promptLayer({

@@ -1,0 +1,37 @@
+{{>header}}
+
+<body class="setBody">
+
+<section class="headerWrap">
+	<div class="headerBg">
+		<div class="headerImgWrap">
+			<img src="{{loginInfo.headimgurl}}" class="headerImg">
+			<img src="/images/setting/icon_member.png" class="headerIcon">
+		</div>
+		<p class="memberNumWrap tc">会员：<span class="memberNum">{{loginInfo.mobilePhone}}</span></p>
+	</div>
+</section>
+
+<section class="changeTitWrap">
+	<span class="changeTit">更换手机号</span>
+</section>
+
+<section class="loginFormWrap">
+	<ul class="list-login">
+		<li><input type="text" maxlength="11" placeholder="请输入11位中国大陆手机号" id="inpPhone" class="inp-login pw100"></li>
+		<li>
+			<p class="clearfix">
+				<input type="text" maxlength="6" placeholder="请输入6位验证码" id="inpSmsCode" class="inp-login w362 fl">
+				<button class="btn-sendSms fr">发送验证码</button>
+			</p>
+		</li>
+		<li>
+			<p class="btnLoginWrap">
+				<button class="btn-login pw100">更改手机号</button>
+			</p>
+		</li>
+	</ul>
+</section>
+
+<script src="/js/setting.min.js"></script>
+{{>footer}}

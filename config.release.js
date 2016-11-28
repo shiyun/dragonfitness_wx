@@ -2,7 +2,7 @@ typeof module !== 'undefined' && (module.exports = {
     ENV : "PRD",
     APP: "dragonfitness",
     PORT: 3000,
-	appId: 'wxljs2mhsn7s',
+	APPID: 'wxljs2mhsn7s',
 	appKey: 'wodh7309chsfp02hsh',
 	channelId: '1001',
 	apiVersion: '1.0',

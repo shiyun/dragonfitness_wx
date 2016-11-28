@@ -6,7 +6,7 @@ var init = function () {
 	/*var isPass = _util.authPass();
 
 	if(!isPass) return;*/
-
+	
 	var params = _util.getQueryString(),
 		addr = decodeURIComponent(params.addr);
 console.log(addr);

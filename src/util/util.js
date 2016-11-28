@@ -125,7 +125,10 @@ var Util = function () {
 		url = encodeURIComponent(url);
 		type = type || 'snsapi_userinfo';
 		if(!isWX()) return;
-		location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid='+ appid +'&redirect_uri=https://wechat.alpha.dragonfitness.cn/wx/getCode&response_type=code&scope='+ type +'&state='+url+'#wechat_redirect';
+		var protocol = location.protocol;
+		var hostname = location.hostname;
+		location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid='+ appid +'&redirect_uri='+protocol+'//'+hostname+'/wx/getCode&response_type=code&scope='+ type +'&state='+url+'#wechat_redirect';
+		console.log('https://open.weixin.qq.com/connect/oauth2/authorize?appid='+ appid +'&redirect_uri='+protocol+'//'+hostname+'/wx/getCode&response_type=code&scope='+ type +'&state='+url+'#wechat_redirect');
 		console.log('https://open.weixin.qq.com/connect/oauth2/authorize?appid='+ appid +'&redirect_uri=https://wechat.alpha.dragonfitness.cn/wx/getCode&response_type=code&scope='+ type +'&state='+url+'#wechat_redirect');
 	};
 

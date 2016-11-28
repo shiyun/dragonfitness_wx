@@ -58,18 +58,19 @@ var init = function () {
 	btnSub.on('click', function(){
 		if (checkPhone() && checkSmsCode()){
 			ajax.post(ajax.api.LOGIN, //登录
-				{mobilePhone: phone.val(), verifyCode:smsCode.val(), token: token || "ohimWxMQdkMA-fiJrpkGPv4CIU2s"},
+				{mobilePhone: phone.val(), verifyCode:smsCode.val(), token: token},
 				function(response){
 					console.log('login:'+JSON.stringify(response));
                     console.log(response);
                     if (response.status.code == '1000'){
-                        location.href = stateUrl;
+                        //location.href = stateUrl;
+						location.href='/personHome';
                     }else{
                         ui.promptLayer({
                             tsinfo: response.status.desp,
                             btxt2: '',
                             successCB:function(){
-                                //window.location.reload();
+								//location.href='/personHome';
                             }
                         });
                     }

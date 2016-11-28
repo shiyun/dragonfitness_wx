@@ -45,7 +45,8 @@ var AJAX = function(){
             COUPON_EXCHANGE : '/api/' + API_URL + '/coupon/exchange',
             PAY_ORDER       : '/api/' + API_URL + '/pay/order',
             PAY_ORDER_INIT	: '/api/' + API_URL + '/pay/orderInit',
-            STORE_INFO		: '/api/' + API_URL + '/store/info'
+            STORE_INFO		: '/api/' + API_URL + '/store/info',
+            UPDATEINFO		: '/update'
         }
     };
 }
