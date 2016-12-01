@@ -59,15 +59,14 @@ var init = function () {
 	selectChoseMon.on('change', function(){
 		var opt = $(this).find('option:selected'),
 			discountVal = opt.data('discount'),
-			val = opt.val();
-		months = opt.text();
-		/*
-		if(months == 1){
+			val = opt.val();		
+		
+		if(discountVal == 10){
 			$('.discountNumWrap').addClass('hidden');
 		}else{
 			$('.discountNumWrap').removeClass('hidden');
 		}
-		*/
+		
 		discountNum.html(discountVal);
 		moneyNum.html(val);
 		countPrice();
